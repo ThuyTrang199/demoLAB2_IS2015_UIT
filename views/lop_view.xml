@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <act_window id="action_quanli_lop"
+      name="QL Lop"
+      res_model="lop.model"
+      view_mode="tree,form" />
+      
+    <menuitem id="menu_quanli_lop"
+      name="Lop"
+      parent="menu_quanli_sinhvien_top"
+      sequence="10"
+      action="action_quanli_lop" />  
+      
+   <record id="view_tree_quanli_lop" model="ir.ui.view">   
+      <field name="name">QL Lop</field>
+      <field name="model">lop.model</field>
+      <field name="arch" type="xml">        
+         <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>    
+    	
+    <!-- Tạo tree view cho "Danh sach SV ket nap Doan" hiển thị trong Form Lop-->
+    <record id="view_tree_danhsach" model="ir.ui.view">
+	    <field name="name">danhsach.tree</field>
+	    <field name="model">danhsachketnapdoan.model</field>
+	    <field name="arch" type="xml">
+	        <tree string="Lay Danh Sach" editable='bottom' >
+	            <field name="hoten"/>
+		        <field name="ngaysinh"/>   
+		        <field name="sdt"/>   
+		        <field name="email"/>
+		        <field name="giotinh"/>
+	        </tree>
+	    </field>
+	</record>
+    <record id="view_form_quanli_lop" model="ir.ui.view">
+      <field name="name">QL Lop</field>
+      <field name="model">lop.model</field>
+      <field name="arch" type="xml">
+      	<header>
+      		<button name="lay_dachsach" string="Lay Sinh Vien Khong la Doan Vien" type="object" class="oe_highlight"/>
+      		<button name="ketnap" string="Ket nap Doan trong Danh sach" type="object" class="oe_highlight"/>
+      	</header>
+        <form>
+          <group>
+	       	<field name="name"/>
+          </group>
+          <notebook>
+     		<page string="Danh sach chua Ket nap">
+ 				<field name="danhsach_ids"/> 
+     		</page>
+     	  </notebook>
+        </form>
+      </field>
+    </record>
+    
+  </data>
+</openerp>
+

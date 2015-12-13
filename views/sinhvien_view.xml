@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <act_window id="action_quanli_sinhvien"
+      name="QL Sinh Vien"
+      res_model="sinhvien.model"
+      view_mode="tree,form" />
+    
+	<menuitem id="menu_quanli_sinhvien_top"
+      name="QL Sinh Vien" sequence="40"/>
+      
+    <menuitem id="menu_quanli_sinhvien"
+      name="Sinh Vien"
+      parent="menu_quanli_sinhvien_top"
+      sequence="10"
+      action="action_quanli_sinhvien" />  
+      
+   <record id="view_tree_quanli_sinhvien" model="ir.ui.view">   
+      <field name="name">QL Sinh Vien</field>
+      <field name="model">sinhvien.model</field>
+      <field name="arch" type="xml">        
+         <tree>
+          <field name="hoten"/>
+          <field name="ngaysinh"/>   
+          <field name="sdt"/>   
+          <field name="email"/>
+          <field name="giotinh"/>
+          <field name="doanvien"/>
+          <field name="lop_id"/>   
+        </tree>
+      </field>
+    </record>    	
+    
+    <record id="view_form_quanli_sinhvien" model="ir.ui.view">
+      <field name="name">QL Sinh Vien</field>
+      <field name="model">sinhvien.model</field>
+      <field name="arch" type="xml">
+        <form>
+          <group name="group_left">
+				<field name="hoten"/>
+				<field name="giotinh"/>   
+				<field name="doanvien"/>
+				<field name="lop_id"/> 
+          </group>
+          <group name="group_right">
+	          	<field name="sdt"/>
+	          	<field name="ngaysinh"/>  
+	          	<field name="email"/>             
+          </group>               
+        </form>
+      </field>
+    </record>
+    
+  </data>
+</openerp>
+
