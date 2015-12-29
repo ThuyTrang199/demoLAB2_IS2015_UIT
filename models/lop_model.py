@@ -20,14 +20,14 @@ class Lop(models.Model):
 #       Lấy dự liệu trả về kiểu: Dictionary
         res = {}
         for line in self.env.cr.dictfetchall(): 
-            res={'sinhvien_id': line['id'] or '',
-                 'hoten': line['hoten'] or '',
-                 'ngaysinh': line['ngaysinh'] or '',
-                 'sdt': line['sdt'] or '',
-                 'email': line['email'] or '',
-                 'giotinh': line['giotinh'] or '',
-                 'sdt': line['sdt'] or '',
-                 'lop_id': self.id or ''}
+            res.append({'sinhvien_id': line['id'] or '',
+                        'hoten': line['hoten'] or '',
+                        'ngaysinh': line['ngaysinh'] or '',
+                        'sdt': line['sdt'] or '',
+                        'email': line['email'] or '',
+                        'giotinh': line['giotinh'] or '',
+                        'sdt': line['sdt'] or '',
+                        'lop_id': self.id or ''})
 #             Tạo danh sách
             danhsach_obj = self.env['danhsachketnapdoan.model']
             danhsach_obj.create(res)
